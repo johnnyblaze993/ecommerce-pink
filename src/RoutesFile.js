@@ -1,11 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Product from "./Product";
-import Products from "./Products";
-import Home from "./Home";
-import Header from "./Header";
-import Cart from "./Cart";
-import Category from "./Category";
+import Product from "./components/Product";
+import Products from "./components/Products";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import Cart from "./components/Cart";
+import Category from "./components/Category";
+import Footer from "./components/Footer";
 
 const RoutesFile = () => {
   return (
@@ -18,6 +19,7 @@ const RoutesFile = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/category/:category" element={<Category />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

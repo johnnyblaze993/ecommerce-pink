@@ -1,14 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="flex justify-between p-5">
-      <div>Logo</div>
-      <div className="flex align-middle gap-4">
-        <span>Login</span>
+    <div className="flex justify-between p-5 h-20 bg-slate-700 text-white sticky">
+      <div className="ml-5">Logo</div>
+      <div className="flex align-middle gap-4 mr-5">
+        <span
+          className="
+            text-xl font-bold 
+        "
+        >
+          Login
+        </span>
         <span>
-          <Link to="/cart">Cart</Link>
+          <NavLink to="/cart" className="text-xl font-bold">
+            Cart
+          </NavLink>
         </span>
       </div>
     </div>

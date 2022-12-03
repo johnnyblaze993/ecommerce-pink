@@ -24,31 +24,54 @@ const Product = () => {
     }
   }, [itemsStatus, dispatch]);
 
-  const cardformat = "p-4 border-2 border-gray-300 rounded-md";
+  const cardformat =
+    "p-4 border-2 border-gray-300 rounded-md flex flex-col justify-between bg-slate-100 hover:bg-slate-200 hover:shadow-lg transition duration-300 ease-in-out h-4/6 w-4/6 mx-auto my-10";
+
+  const button =
+    "bg-slate-500 text-white text-xl font-bold p-2 rounded  transition duration-500 ease-in-out  align-middle mt-10 ";
 
   return (
-    <div>
-      <h1>Single Product Page</h1>
+    <div
+      className="
+    flex flex-col items-center h-screen mx-auto justify-center relative p-10 w-4/5 
+    "
+    >
       {itemsStatus === "loading" && <div>Loading...</div>}
       {itemsStatus === "succeeded" && (
         <div className={cardformat}>
-          <h2>{items[id - 1].title}</h2>
-          <p>{items[id - 1].description}</p>
+          <h1
+            className="
+            text-3xl font-bold text-center text-slate-500 my-8
+            "
+          >
+            {items[id - 1].title}
+          </h1>
+
           <p>{items[id - 1].price}</p>
           <img
             src={items[id - 1].image}
             alt={items[id - 1].title}
             className=" w-1/2 h-1/2 mx-auto"
           />
-          <p> {items[id - 1].category}</p> <br />
-          <button>Add to Cart</button>
+          <p>{items[id - 1].description}</p>
+          <button className={button}>Add to Cart</button>
         </div>
       )}
       {itemsStatus === "failed" && <div>{itemsError}</div>}
-      <button onClick={() => navigate("/products")}>Back to Products</button>
+      <button onClick={() => navigate("/products")} className={button}>
+        Back to Products
+      </button>
 
       <br />
-      <button onClick={() => navigate("/")}> Home</button>
+      <button
+        onClick={() => navigate("/")}
+        className="
+      absolute top-10 left-0 bg-slate-500 text-white text-xl font-bold p-2 rounded  transition duration-500 ease-in-out  align-middle 
+      "
+      >
+        {" "}
+        Back to Home
+      </button>
     </div>
   );
 };
