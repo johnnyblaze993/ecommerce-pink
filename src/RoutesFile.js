@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 const RoutesFile = () => {
   return (
-    <div>
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +20,7 @@ const RoutesFile = () => {
         <Route path="/category/:category" element={<Category />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 };
 

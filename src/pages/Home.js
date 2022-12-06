@@ -1,52 +1,56 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import HomeBanner from "../components/HomeBanner";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const textHover =
-    "hover:text-slate-300 transition duration-500 ease-in-out transform hover:scale-110";
-
   return (
     <div>
       <div
-        className="flex justify-evenly p-4 
-      bg-slate-600 text-white text-xl font-bold overflow-y-auto
-      "
+        style={{
+          backgroundColor: "hotPink",
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          height: "10vh",
+          fontSize: "3rem",
+          //make as bold as possible
+          fontWeight: "900",
+        }}
       >
-        <button
+        <motion.button
           onClick={() => {
             navigate("/category/electronics");
           }}
-          className={textHover}
+          whileHover={{
+            scale: 1.1,
+          }}
         >
           Electronics
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={() => {
             navigate("/category/men's clothing");
           }}
-          className={textHover}
         >
           Men's
-        </button>
+        </motion.button>
         <button
           onClick={() => {
             navigate("/category/women's clothing");
           }}
-          className={textHover}
         >
           Women's
         </button>
-        <button
+        <motion.button
           onClick={() => {
             navigate("/category/jewelery");
           }}
-          className={textHover}
         >
           Jewelery
-        </button>
+        </motion.button>
       </div>
       <HomeBanner />
     </div>

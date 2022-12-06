@@ -1,28 +1,44 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-const button =
-  "bg-slate-500 text-white text-xl font-bold p-2 rounded  transition duration-500 ease-in-out transform hover:scale-110 align-middle";
-
-const homeStyle = "flex justify-center items-center text-5xl";
+import background from "../assets/background.png";
+import { motion } from "framer-motion";
 
 const HomeBanner = () => {
   const navigate = useNavigate();
   return (
     <div
-      className={homeStyle}
       style={{
-        backgroundImage: `url("https://images.unsplash.com/photo-1540760938999-077b8231d890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBhdHRlcm4lMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=700&q=60")`,
+        backgroundImage: `url(${background})`,
 
         backgroundSize: "cover",
-
-        backgroundRepeat: "no-repeat",
-        height: "85vh",
+        height: "74vh",
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <button onClick={() => navigate("/products")} className={button}>
+      <motion.button
+        onClick={() => navigate("/products")}
+        style={{
+          backgroundColor: "black",
+          padding: "3rem",
+          borderRadius: "10px",
+          fontSize: "8.5rem",
+          fontWeight: "bold",
+          color: "white",
+          border: "1.5px solid white",
+        }}
+        initial={{
+          scale: 1,
+        }}
+        whileHover={{
+          scale: 1.1,
+          boxShadow: "0px 0px 8px 8px #FF24E9",
+        }}
+      >
         Shop All Products
-      </button>
+      </motion.button>
     </div>
   );
 };

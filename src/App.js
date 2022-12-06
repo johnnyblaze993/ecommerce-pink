@@ -4,7 +4,7 @@ import RoutesFile from "./RoutesFile";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <RoutesFile />
     </div>
   );

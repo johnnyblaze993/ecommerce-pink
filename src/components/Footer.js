@@ -3,10 +3,14 @@ import React from "react";
 const Footer = () => {
   return (
     <div
-      className="
-        flex justify-center items-center h-20 bg-slate-700 text-white fixed bottom-0 w-full
-
-     "
+      style={{
+        backgroundColor: "black",
+        color: "#ffd2e9",
+        height: "10vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
       <h1
         className="
