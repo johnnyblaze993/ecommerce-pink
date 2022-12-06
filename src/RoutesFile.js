@@ -1,24 +1,27 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Product from "./pages/Product";
-import Products from "./pages/Products";
+import Product from "./pages/product/Product";
+import Products from "./pages/products/Products";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";
-import Category from "./pages/Category";
+import Category from "./pages/category/Category";
 import Footer from "./components/Footer";
+import { AnimatePresence } from "framer-motion";
 
 const RoutesFile = () => {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/category/:category" element={<Category />} />
-      </Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/category/:category" element={<Category />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
     </>
   );

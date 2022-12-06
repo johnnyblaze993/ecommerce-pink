@@ -1,8 +1,9 @@
 import { Whatshot } from "@mui/icons-material";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 //import cartSlice functions
 import { selectCartItems } from "../features/items/cart/cartSlice";
@@ -49,12 +50,17 @@ const rightNaveStyle = {
 };
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div style={headerMainStyle}>
       {/* Left Nav */}
-      <div>
+      <motion.div
+        //on hover scale and change to hot pink
+        whileHover={{ scale: 1.2, color: "#FF24E9", cursor: "pointer" }}
+        onClick={() => navigate("/")}
+      >
         <Whatshot sx={logoStyle} />
-      </div>
+      </motion.div>
       {/* Right Nav */}
       <div style={rightNaveStyle}>
         <span style={linkStyle}>Login</span>
