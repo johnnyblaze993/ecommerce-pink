@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 //import cartSlice functions
 import { selectCartItems } from "../features/items/cart/cartSlice";
+import { Tooltip } from "@mui/material";
 
 const logoStyle = {
   fontSize: "3rem",
@@ -54,13 +55,14 @@ const Header = () => {
   return (
     <div style={headerMainStyle}>
       {/* Left Nav */}
-      <motion.div
-        //on hover scale and change to hot pink
-        whileHover={{ scale: 1.2, color: "#FF24E9", cursor: "pointer" }}
-        onClick={() => navigate("/")}
-      >
-        <Whatshot sx={logoStyle} />
-      </motion.div>
+      <Tooltip title="Home" placement="right" arrow enterTouchDelay={1}>
+        <motion.div
+          whileHover={{ scale: 1.2, color: "#FF24E9", cursor: "pointer" }}
+          onClick={() => navigate("/")}
+        >
+          <Whatshot sx={logoStyle} />
+        </motion.div>
+      </Tooltip>
       {/* Right Nav */}
       <div style={rightNaveStyle}>
         <span style={linkStyle}>Login</span>

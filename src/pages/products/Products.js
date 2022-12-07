@@ -67,6 +67,31 @@ const cardQuantityBox = (item, itemsInCart, dispatch) => {
   );
 };
 
+const loader = () => {
+  return (
+    <motion.div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        width: "100vw",
+        color: "hotpink",
+      }}
+      initial={{ rotate: 0 }}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 1, repeat: Infinity }}
+      exit={{ rotate: 0 }}
+    >
+      <Sync
+        style={{
+          fontSize: "10rem",
+        }}
+      />
+    </motion.div>
+  );
+};
+
 const Products = () => {
   const items = useSelector(selectAllItems);
   const itemsStatus = useSelector(selectItemsStatus);
@@ -87,25 +112,7 @@ const Products = () => {
   return (
     <div style={{ height: "auto", width: "100vw" }}>
       <h2 style={titleStyle}>Products</h2>
-      {itemsStatus === "loading" && (
-        <motion.div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            width: "100vw",
-            fontSize: "8rem",
-            color: "hotpink",
-          }}
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1 }}
-          exit={{ rotate: 0 }}
-        >
-          <Sync />
-        </motion.div>
-      )}
+      {itemsStatus === "loading" && loader()}
       {itemsStatus === "succeeded" && (
         <ul style={gridformatStyle}>
           {items

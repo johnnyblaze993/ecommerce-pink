@@ -24,6 +24,33 @@ import {
   descriptionStyle,
   addToCartStyle,
 } from "./product.styles";
+import { Sync } from "@mui/icons-material";
+
+//helper functions
+const loader = () => {
+  return (
+    <motion.div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        width: "100vw",
+        color: "hotpink",
+      }}
+      initial={{ rotate: 0 }}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 1, repeat: Infinity }}
+      exit={{ rotate: 0 }}
+    >
+      <Sync
+        style={{
+          fontSize: "10rem",
+        }}
+      />
+    </motion.div>
+  );
+};
 
 const Product = () => {
   const items = useSelector(selectAllItems);
@@ -36,8 +63,6 @@ const Product = () => {
   useEffect(() => {
     if (itemsStatus === "idle") {
       dispatch(fetchItems());
-
-      //if there is an error, navigate to the home page
     } else if (itemsStatus === "failed") {
       navigate("/");
     }
@@ -67,7 +92,7 @@ const Product = () => {
         {items[id - 1].category}
       </h2>
       <div style={mainContainerStyle}>
-        {itemsStatus === "loading" && <div>Loading...</div>}
+        {itemsStatus === "loading" && loader()}
         {itemsStatus === "succeeded" && (
           <div style={productContainerStyle}>
             <div

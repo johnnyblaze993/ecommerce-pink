@@ -21,7 +21,7 @@ import {
 } from "../../features/items/cart/cartSlice";
 
 import { useEffect } from "react";
-import { ArrowBack, ArrowForward, Delete } from "@mui/icons-material";
+import { ArrowBack, ArrowForward, Delete, Sync } from "@mui/icons-material";
 import {
   gridformatStyle,
   cardformatStyle,
@@ -70,6 +70,31 @@ const cardQuantityBox = (item, itemsInCart, dispatch) => {
   );
 };
 
+const loader = () => {
+  return (
+    <motion.div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        width: "100vw",
+        color: "hotpink",
+      }}
+      initial={{ rotate: 0 }}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 1, repeat: Infinity }}
+      exit={{ rotate: 0 }}
+    >
+      <Sync
+        style={{
+          fontSize: "10rem",
+        }}
+      />
+    </motion.div>
+  );
+};
+
 const Category = () => {
   const items = useSelector(selectAllItems);
   const itemsStatus = useSelector(selectItemsStatus);
@@ -91,7 +116,7 @@ const Category = () => {
     <div style={{ height: "88vh", width: "100vw" }}>
       <h2 style={titleStyle}>{category}</h2>
 
-      {itemsStatus === "loading" && <div>Loading...</div>}
+      {itemsStatus === "loading" && loader()}
       {itemsStatus === "succeeded" && (
         <ul style={gridformatStyle}>
           {items
