@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Cart from "./pages/Cart";
 import Category from "./pages/category/Category";
 import Footer from "./components/Footer";
+import OrderPlaced from "./pages/OrderPlaced";
 import { AnimatePresence } from "framer-motion";
 
 const RoutesFile = () => {
@@ -20,6 +21,7 @@ const RoutesFile = () => {
           <Route path="/products/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/category/:category" element={<Category />} />
+          <Route path="/order-placed" element={<OrderPlaced />} />
         </Routes>
       </AnimatePresence>
       <Footer />

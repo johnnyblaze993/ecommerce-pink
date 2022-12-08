@@ -268,7 +268,14 @@ const Cart = () => {
                 ).toFixed(2)}
               </div>
             </div>
-            <button style={placeOrderButtonStyle}>Place Order</button>
+            <button
+              style={placeOrderButtonStyle}
+              onClick={() => {
+                navigate("/order-placed");
+              }}
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>
